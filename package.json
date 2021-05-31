@@ -1,0 +1,54 @@
+{
+  "name": "@se-fe/utils",
+  "version": "1.0.0",
+  "description": "",
+  "main": "lib/commonjs/index.js",
+  "module": "lib/esm/index.js",
+  "typings": "types/index.d.ts",
+  "unpkg": "lib/commonjs/index.js",
+  "scripts": {
+    "c": "rimraf src/*.js rimraf src/*.map rimraf src/**/*.js rimraf src/**/*.map",
+    "clean": "rimraf lib/**",
+    "typings": "tsc -d --declarationDir types && npm run c",
+    "target": "history-server ./example -p 8001",
+    "dev": "cross-env NODE_ENV=development BUILD_ENV=dev rollup -c -w",
+    "build": "npm run clean && npm run typings && npm run pro",
+    "pro": "cross-env NODE_ENV=production BUILD_ENV=pro rollup -c"
+  },
+  "files": [
+    "lib",
+    "types"
+  ],
+  "sideEffects": false,
+  "keywords": [
+    "fe-utils"
+  ],
+  "author": "season",
+  "license": "MIT",
+  "dependencies": {
+    "postcss": "^8.2.6",
+    "rollup": "^2.39.0",
+    "rollup-plugin-postcss": "^4.0.0",
+    "typescript": "^4.1.5"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.13.16",
+    "@babel/plugin-transform-runtime": "^7.13.15",
+    "@babel/preset-env": "^7.13.15",
+    "@babel/preset-typescript": "^7.13.0",
+    "@rollup/plugin-babel": "^5.3.0",
+    "@rollup/plugin-commonjs": "^17.1.0",
+    "@rollup/plugin-json": "^4.1.0",
+    "@rollup/plugin-node-resolve": "^11.2.0",
+    "@rollup/plugin-replace": "^2.4.2",
+    "@rollup/plugin-typescript": "^8.2.0",
+    "@typescript-eslint/eslint-plugin": "^4.15.1",
+    "@typescript-eslint/parser": "^4.15.1",
+    "cross-env": "^7.0.3",
+    "eslint": "^7.20.0",
+    "rimraf": "^3.0.2",
+    "rollup-plugin-inject-process-env": "^1.3.1",
+    "rollup-plugin-live-server": "^1.0.3",
+    "rollup-plugin-terser": "^7.0.2"
+  }
+}

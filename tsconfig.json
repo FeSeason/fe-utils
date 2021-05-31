@@ -1,0 +1,41 @@
+{
+  "compilerOptions": {
+    // "module": "commonjs",
+    "module": "esnext",
+    "target": "ES5",
+    
+    // 在表达式和声明上有隐含的 any类型时报错。
+    "noImplicitAny": true,
+    "strictNullChecks": true,
+    "removeComments": true,
+
+    // 支持别名导入:
+    // import * as React from "react"
+    "esModuleInterop": true,
+
+    // 保留 const和 enum声明
+    "preserveConstEnums": true,
+    "sourceMap": false,
+    "rootDir": "src",
+    // "outDir": "dist/esm",
+    "lib": ["es5", "es6", "dom"],
+    "skipLibCheck": true,
+
+    // 启动装饰器
+    "experimentalDecorators": true,
+
+    // 额外支持解构/forof等功能
+    "downlevelIteration": true,
+
+    // 是否生成声明文件
+    // "declaration": true,
+    // 声明文件路径
+    // "declarationDir": "./lib",
+
+    // 配置模块的解析规则 classic | node
+    "moduleResolution": "node",  
+  },
+  "compileOnSave": true,
+  "exclude": ["test", "lib"],
+  "include": ["typings/**/*.d.ts", "src"]
+}
