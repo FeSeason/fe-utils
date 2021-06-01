@@ -6,7 +6,7 @@
 export const isArray = (obj: any) => {
   if (!obj) return false;
 
-  return Object.prototype.toString.call(obj) === '[object, Array]';
+  return Object.prototype.toString.call(obj) === '[object Array]';
 };
 
 /**

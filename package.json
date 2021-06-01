@@ -1,19 +1,21 @@
 {
   "name": "@se-fe/utils",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "",
   "main": "lib/commonjs/index.js",
   "module": "lib/esm/index.js",
   "typings": "types/index.d.ts",
-  "unpkg": "lib/commonjs/index.js",
+  "unpkg": "lib/iife/index.js",
   "scripts": {
     "c": "rimraf src/*.js rimraf src/*.map rimraf src/**/*.js rimraf src/**/*.map",
     "clean": "rimraf lib/**",
     "typings": "tsc -d --declarationDir types && npm run c",
     "target": "history-server ./example -p 8001",
     "dev": "cross-env NODE_ENV=development BUILD_ENV=dev rollup -c -w",
-    "build": "npm run clean && npm run typings && npm run pro",
-    "pro": "cross-env NODE_ENV=production BUILD_ENV=pro rollup -c"
+    "build": "npm run clean && npm run typings && npm run patch && npm run pro",
+    "pro": "cross-env NODE_ENV=production BUILD_ENV=pro rollup -c",
+    "patch": "git add . && git commit -am 'patch' && npm version patch",
+    "publish": "npm publish --access=public"
   },
   "files": [
     "lib",
@@ -49,6 +51,7 @@
     "rimraf": "^3.0.2",
     "rollup-plugin-inject-process-env": "^1.3.1",
     "rollup-plugin-live-server": "^1.0.3",
+    "rollup-plugin-rename-node-modules": "^1.1.0",
     "rollup-plugin-terser": "^7.0.2"
   }
 }

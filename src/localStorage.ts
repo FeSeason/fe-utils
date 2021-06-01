@@ -74,6 +74,7 @@ export const getItem = (key: string): storageData | null => {
  * 数组追加形式写入
  * @param key
  * @param data
+ * @param sig 是否添加唯一标记
  */
 export const pushItem = (key: string, data: storageData, sig = false) => {
   const itemStr = $localStorage.getItem(key);
