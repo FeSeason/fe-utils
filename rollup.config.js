@@ -4,6 +4,7 @@ import resolve from '@rollup/plugin-node-resolve';
 import json from '@rollup/plugin-json';
 import typescript from '@rollup/plugin-typescript';
 import postcss from 'rollup-plugin-postcss';
+import renameNodeModules from 'rollup-plugin-rename-node-modules';
 
 import replace from '@rollup/plugin-replace';
 import { terser } from 'rollup-plugin-terser';
@@ -14,6 +15,7 @@ const isProduction = process.env.NODE_ENV === 'production';
 const BUILD_ENV = process.env.BUILD_ENV;
 const version = require('./package.json').version;
 const name = require('./package.json').name;
+const unpkg = require('./package.json').unpkg;
 
 console.log(
   '【isProduction】:',
@@ -84,14 +86,31 @@ if (isProduction) {
       output: [
         {
           dir: outputDir + '/esm',
-          format: 'es',
+          format: 'esm',
           banner,
 
           // 开启需要在 tsconfig 同步开启
           // sourcemap: 'hidden',
+          plugins: [renameNodeModules('ext')],
         },
       ],
-      plugins: basePlugins.concat([terser({ module: true })]),
+      // plugins: basePlugins.concat([terser({ module: true })]),
+      plugins: basePlugins,
+    })),
+  );
+
+  /** iife */
+  configs.push.apply(
+    configs,
+    inputs.map((ipt) => ({
+      input: ipt,
+      output: {
+        name: 'se_utils',
+        file: unpkg,
+        format: 'iife',
+        banner,
+      },
+      plugins: basePlugins.concat([terser()]),
     })),
   );
 }
