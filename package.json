@@ -12,8 +12,10 @@
     "typings": "tsc -d --declarationDir types && npm run c",
     "target": "history-server ./example -p 8001",
     "dev": "cross-env NODE_ENV=development BUILD_ENV=dev rollup -c -w",
-    "build": "npm run clean && npm run typings && npm run pro",
-    "pro": "cross-env NODE_ENV=production BUILD_ENV=pro rollup -c"
+    "build": "npm run clean && npm run typings && npm run patch && npm run pro",
+    "pro": "cross-env NODE_ENV=production BUILD_ENV=pro rollup -c",
+    "patch": "git add . && git commit -am 'patch' && npm version patch",
+    "publish": "npm publish --access=public"
   },
   "files": [
     "lib",
