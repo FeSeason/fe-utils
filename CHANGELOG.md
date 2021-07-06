@@ -10,3 +10,7 @@
 ## v1.0.2
 
 - add readme
+
+## v1.0.3
+
+- add dateTime log
