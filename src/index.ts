@@ -1,5 +1,5 @@
 import * as $localStorage from './localStorage';
-import * as dateTime from './datetime';
-import * as log from './log';
+import dateTime from './datetime';
+import log from './log';
 
 export { $localStorage, dateTime, log };
