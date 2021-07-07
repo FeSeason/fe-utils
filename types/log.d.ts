@@ -1,10 +1,20 @@
-declare const _default: {
-    green: (...args: any) => void;
-    error: (...args: any) => void;
-    info: (...args: any) => void;
-    clear: {
-        (): void;
-        (): void;
+export interface ISLog {
+    level: 1 | 2 | 3;
+    open: true;
+    prefix: string;
+}
+export declare type logTye = 'great' | 'info' | 'error';
+declare class sLog {
+    config: {
+        level: number;
+        open: boolean;
+        prefix: string;
     };
-};
-export default _default;
+    constructor(config: ISLog);
+    private resolveLog;
+    great(...args: any): void;
+    info(...args: any): void;
+    error(...args: any): void;
+    clear(): void;
+}
+export default sLog;
