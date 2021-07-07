@@ -5,10 +5,9 @@ const DATE_FORMATE = 'HH:mm:ss';
 export interface ISLog {
   /** 日志等级: 1 显示所有 | 2 只显示 info | 3 只显示 error */
   level: 1 | 2 | 3,
-
   /** 是否开启 */
   open: true,
-
+  /** 前缀 */
   prefix: string;
 }
 
