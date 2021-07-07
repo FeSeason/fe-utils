@@ -58,7 +58,7 @@ class sLog {
         break;
 
       case 'error':
-        if (level !== 1 && level !== 3) {
+        if (level === 2) {
           return;
         }
         arg.unshift(
