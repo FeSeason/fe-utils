@@ -1,6 +1,6 @@
 {
   "name": "@se-fe/utils",
-  "version": "1.0.9",
+  "version": "1.0.10",
   "description": "",
   "main": "lib/commonjs/index.js",
   "module": "lib/esm/index.js",
@@ -34,8 +34,7 @@
   "homepage": "https://github.com/FeSeason/fe-utils#readme",
   "author": "season",
   "license": "MIT",
-  "dependencies": {
-  },
+  "dependencies": {},
   "devDependencies": {
     "postcss": "^8.2.6",
     "rollup": "^2.39.0",
