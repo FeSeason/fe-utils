@@ -14,7 +14,8 @@
     "dev": "cross-env NODE_ENV=development BUILD_ENV=dev rollup -c -w",
     "build": "npm run clean && npm run typings && npm run pro && npm run patch ",
     "pro": "cross-env NODE_ENV=production BUILD_ENV=pro rollup -c",
-    "patch": "git add . && git commit -am 'patch' && npm version patch"
+    "patch": "git add . && git commit -am 'patch' && npm version patch",
+    "publish": "npm publish --access=public"
   },
   "files": [
     "lib",

@@ -14,3 +14,7 @@
 ## v1.0.3
 
 - add dateTime log
+
+## v1.0.13
+
+- add cookie
