@@ -1,6 +1,6 @@
 {
   "name": "@se-fe/utils",
-  "version": "1.0.12",
+  "version": "1.0.13",
   "description": "",
   "main": "lib/commonjs/index.js",
   "module": "lib/esm/index.js",
